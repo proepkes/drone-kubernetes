@@ -1,3 +1,4 @@
 .idea
 
 test_locally.sh
+.vscode/settings.json
