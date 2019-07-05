@@ -19,8 +19,6 @@ fi
 if [ ! -z ${KUBERNETES_CLIENT_CERTIFICATE} ] && [ ! -z ${KUBERNETES_CLIENT_KEY} ]; then
     echo ${KUBERNETES_CLIENT_CERTIFICATE} | base64 -d > client-certificate.crt
     echo ${KUBERNETES_CLIENT_KEY} | base64 -d > client-key.crt
-    cat client-certificate.crt
-    echo "-----"
     kubectl config set-credentials default --client-certificate client-certificate.crt --client-key client-key.crt
 else
     kubectl config set-credentials default --token=${KUBERNETES_TOKEN}
